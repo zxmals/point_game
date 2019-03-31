@@ -9,7 +9,9 @@ let delay_time = "50";
 
 //初始化
 init();
-function init() {
+
+//环境初始化
+function intt_environment() {
     $("table").remove();
     $("body").append("<table></table>");
     for(let i=0;i<40;i++){
@@ -20,10 +22,15 @@ function init() {
             "<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>" +
             "</tr>");
     }
+}
+
+//材料准备
+function init_mades() {
     //初始触发点
     position[1][0] = randomnum(0,edgex);
     position[1][1] = $("table tr").length-2;
     $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]).toggleClass("tdscolor");
+    //踩板准备
     let a = randomnum(position[1][0]-7,position[1][0]);
     let b = 0;
     for(let i=a;i<a+8;i++){
@@ -32,6 +39,12 @@ function init() {
     }
 }
 
+function init() {
+    intt_environment();
+    init_mades();
+
+}
+//踩板 移动
 function band_move(codes) {
     if(codes2==0){
         if(codes==39){
@@ -117,7 +130,7 @@ function touch_edgel() {
     if(position[0][0]!=null){
         if(position[1][1]>position[0][1]){
             //触角 左下
-            if(position[1][1]==edgey){
+            if(position[1][1]==edgey-1){
                 $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]).removeClass("tdscolor");
                 if((randomnum(1,11)>5?1:0) == 1){
                     position[1][1] = position[1][1]-1;
@@ -128,7 +141,7 @@ function touch_edgel() {
                     position[1][0] = position[1][0]+1;
                     position[0][0] = position[1][0]+1;
                     position[0][1] = position[1][1]-1;
-                    switchs(position[1][0]-1, position[1][1]-1);
+                    touch_edgedn();
                 }
             }
             else
@@ -160,7 +173,8 @@ function touch_edgel() {
 function touch_edger() {
     if(position[0][0]!=null){
         if(position[1][1]>position[0][1]){
-            if(position[1][1]==edgey){
+            //触角 右下
+            if(position[1][1]==edgey-1){
                 $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]).removeClass("tdscolor");
                 if((randomnum(1,11)>5?1:0) == 0){
                     position[1][1] = position[1][1]-1;
@@ -171,7 +185,7 @@ function touch_edger() {
                     position[1][0] = position[1][0]-1;
                     position[0][0] = position[1][0]-1;
                     position[0][1] = position[1][1]-1;
-                    switchs(position[1][0]+1, position[1][1]-1);
+                    touch_edgedn();
                 }
             }else
                 switchs(position[1][0]-1, position[1][1]+1);
