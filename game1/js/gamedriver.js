@@ -6,6 +6,7 @@ position[0] = new Array(2);
 position[1] = new Array(2);
 let band = new Array(8);
 let delay_time = "50";
+let crocks = new Array(55);
 
 //初始化
 init();
@@ -36,6 +37,14 @@ function init_mades() {
     for(let i=a;i<a+8;i++){
         $("table tr").eq($("table tr").length-1).eq(0).find("td").eq(i).toggleClass("td_band");
         band[b++] = i;
+    }
+    //素材准备
+    for(let i=5;i<51;i++){
+        crocks[i] = new Array(39);
+        for(let j=5;j<34;j++) {
+            $("table tr").eq(j).eq(0).find("td").eq(i).toggleClass("td_band");
+            crocks[i][j] = 1;
+        }
     }
 }
 
@@ -106,20 +115,25 @@ function game_over() {
     return;
 }
 
+//选择移动方向
+function choose_direction(lefts,right,ups,dns) {
+    if (position[1][0] == (lefts!=null?lefts:0)) {
+        touch_edgel();
+    } else if (position[1][0] == (right!=null?right:edgex)) {
+        touch_edger();
+    } else if (position[1][1] == (lefts!=null?lefts:0)) {
+        touch_edgeup();
+    } else if (position[1][1] == (lefts!=null?lefts:(edgey-1))) {
+        touch_edgedn();
+    } else {
+        gostraight();
+    }
+}
+
 //触发球移动
 function point_move() {
     if(position[1][1]!=edgey) {
-        if (position[1][0] == 0) {
-            touch_edgel();
-        } else if (position[1][0] == edgex) {
-            touch_edger();
-        } else if (position[1][1] == 0) {
-            touch_edgeup();
-        } else if (position[1][1] == edgey-1) {
-            touch_edgedn();
-        } else {
-            gostraight();
-        }
+        choose_direction();
         setTimeout("point_move()",delay_time);
     }else {
         game_over();
