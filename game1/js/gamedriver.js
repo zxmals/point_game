@@ -5,7 +5,7 @@ let position = new Array(2);
 position[0] = new Array(2);
 position[1] = new Array(2);
 let band = new Array(8);
-let delay_time = "50";
+let delay_time = "150";
 let crocks = new Array(55);
 
 //初始化
@@ -39,8 +39,13 @@ function init_mades() {
         band[b++] = i;
     }
     //素材准备
-    for(let i=5;i<51;i++){
+    for(let i=-2;i<=57;i++){
         crocks[i] = new Array(39);
+        for(let j=0;j<=39;j++) {
+            crocks[i][j] = 0;
+        }
+    }
+    for(let i=5;i<51;i++){
         for(let j=5;j<34;j++) {
             $("table tr").eq(j).eq(0).find("td").eq(i).toggleClass("td_band");
             crocks[i][j] = 1;
@@ -121,9 +126,9 @@ function choose_direction(lefts,right,ups,dns) {
         touch_edgel();
     } else if (position[1][0] == (right!=null?right:edgex)) {
         touch_edger();
-    } else if (position[1][1] == (lefts!=null?lefts:0)) {
+    } else if (position[1][1] == (ups!=null?ups:0)) {
         touch_edgeup();
-    } else if (position[1][1] == (lefts!=null?lefts:(edgey-1))) {
+    } else if (position[1][1] == (dns!=null?dns:(edgey-1))) {
         touch_edgedn();
     } else {
         gostraight();
@@ -263,10 +268,22 @@ function gostraight() {
         if(position[1][1]>position[0][1]){
             //向右
             if(position[1][0]>position[0][0]){
-                switchs(position[1][0]+1, position[1][1]+1);
+                if(crocks[position[1][0]][position[1][1]+1]!=1)
+                    switchs(position[1][0]+1, position[1][1]+1)
+                else{
+                    crocks[position[1][0]][position[1][1]+1] = 0;
+                    $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                    choose_direction(null,null,null,position[1][1]);
+                }
             }else if(position[1][0]<position[0][0]){
                 //向左
-                switchs(position[1][0]-1, position[1][1]+1);
+                if(crocks[position[1][0]][position[1][1]+1]!=1)
+                    switchs(position[1][0]-1, position[1][1]+1)
+                else {
+                    crocks[position[1][0]][position[1][1]+1] = 0;
+                    $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                    choose_direction(null, null, null, position[1][1] );
+                }
             }else{
                 //无向
                 switchs(position[1][0], position[1][1]+1);
@@ -275,10 +292,22 @@ function gostraight() {
         }else if(position[1][1]<position[0][1]){
             //向右
             if(position[1][0]>position[0][0]){
-                switchs(position[1][0]+1, position[1][1]-1);
+                if(crocks[position[1][0]][position[1][1]-1]!=1&crocks[position[1][0]+1][position[1][1]-1]!=1)
+                    switchs(position[1][0]+1, position[1][1]-1)
+                else{
+                    crocks[position[1][0]][position[1][1]-1] = 0;
+                    $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                    choose_direction(null, null, position[1][1] , null);
+                }
             }else if(position[1][0]<position[0][0]){
                 //向左
-                switchs(position[1][0]-1, position[1][1]-1);
+                if(crocks[position[1][0]][position[1][1]-1]!=1)
+                    switchs(position[1][0]-1, position[1][1]-1)
+                else{
+                    crocks[position[1][0]][position[1][1]-1] = 0;
+                    $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                    choose_direction(null, null, position[1][1] , null);
+                }
             }else{
                 //无向
                 switchs(position[1][0], position[1][1]-1);
