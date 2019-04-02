@@ -5,7 +5,7 @@ let position = new Array(2);
 position[0] = new Array(2);
 position[1] = new Array(2);
 let band = new Array(8);
-let delay_time = "10";
+let delay_time = "1";
 let crocks = new Array(55);
 
 //初始化
