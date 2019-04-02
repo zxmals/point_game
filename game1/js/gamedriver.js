@@ -5,7 +5,7 @@ let position = new Array(2);
 position[0] = new Array(2);
 position[1] = new Array(2);
 let band = new Array(8);
-let delay_time = "150";
+let delay_time = "10";
 let crocks = new Array(55);
 
 //初始化
@@ -34,7 +34,11 @@ function init_mades() {
     //踩板准备
     let a = randomnum(position[1][0]-7,position[1][0]);
     let b = 0;
-    for(let i=a;i<a+8;i++){
+    // for(let i=a;i<a+8;i++){
+    //     $("table tr").eq($("table tr").length-1).eq(0).find("td").eq(i).toggleClass("td_band");
+    //     band[b++] = i;
+    // }
+    for(let i=0;i<56;i++){
         $("table tr").eq($("table tr").length-1).eq(0).find("td").eq(i).toggleClass("td_band");
         band[b++] = i;
     }
@@ -261,6 +265,7 @@ function touch_edgedn() {
         }
     }
 }
+
 //按路线移动
 function gostraight() {
     if(position[0][0]!=null){
@@ -268,21 +273,69 @@ function gostraight() {
         if(position[1][1]>position[0][1]){
             //向右
             if(position[1][0]>position[0][0]){
-                if(crocks[position[1][0]][position[1][1]+1]!=1)
+                if(crocks[position[1][0]][position[1][1]+1]!=1&crocks[position[1][0]+1][position[1][1]]!=1&crocks[position[1][0]+1][position[1][1]+1]!=1)
                     switchs(position[1][0]+1, position[1][1]+1)
                 else{
-                    crocks[position[1][0]][position[1][1]+1] = 0;
-                    $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
-                    choose_direction(null,null,null,position[1][1]);
+                    if(crocks[position[1][0]][position[1][1]+1]==1&crocks[position[1][0]+1][position[1][1]]==1&crocks[position[1][0]+1][position[1][1]+1]==1){
+                        crocks[position[1][0]][position[1][1] + 1] = 0;
+                        crocks[position[1][0]+1][position[1][1]] = 0;
+                        crocks[position[1][0]+1][position[1][1]+1] = 0;
+                        $("table tr").eq(position[1][1] + 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        switchs(position[1][0]-1,position[1][1]-1);
+                    }else if(crocks[position[1][0]][position[1][1]+1]!=1&crocks[position[1][0]+1][position[1][1]]!=1&crocks[position[1][0]+1][position[1][1]+1]==1){
+                        crocks[position[1][0]+1][position[1][1]+1] = 0;
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        switchs(position[1][0]-1,position[1][1]-1);
+                    }else if(crocks[position[1][0]][position[1][1]+1]==1&crocks[position[1][0]+1][position[1][1]]==1){
+                        crocks[position[1][0]][position[1][1] + 1] = 0;
+                        crocks[position[1][0]+1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1] + 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        switchs(position[1][0]-1,position[1][1]-1);
+                    }else if(crocks[position[1][0]][position[1][1]+1]==1) {
+                        crocks[position[1][0]][position[1][1] + 1] = 0;
+                        $("table tr").eq(position[1][1] + 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        choose_direction(null, null, null, position[1][1]);
+                    }else if(crocks[position[1][0]+1][position[1][1]]==1){
+                        crocks[position[1][0]+1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        choose_direction(null, position[1][0], null, null);
+                    }
                 }
             }else if(position[1][0]<position[0][0]){
                 //向左
-                if(crocks[position[1][0]][position[1][1]+1]!=1)
+                if(crocks[position[1][0]][position[1][1]+1]!=1&crocks[position[1][0]-1][position[1][1]]!=1&crocks[position[1][0]-1][position[1][1]+1]!=1)
                     switchs(position[1][0]-1, position[1][1]+1)
                 else {
-                    crocks[position[1][0]][position[1][1]+1] = 0;
-                    $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
-                    choose_direction(null, null, null, position[1][1] );
+                    if(crocks[position[1][0]][position[1][1]+1]==1&crocks[position[1][0]-1][position[1][1]]==1&crocks[position[1][0]-1][position[1][1]+1]==1){
+                        crocks[position[1][0]][position[1][1]+1] = 0;
+                        crocks[position[1][0]-1][position[1][1]] = 0;
+                        crocks[position[1][0]-1][position[1][1]+1] = 0;
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        switchs(position[1][0]+1,position[1][1]-1);
+                    }else if(crocks[position[1][0]][position[1][1]+1]!=1&crocks[position[1][0]-1][position[1][1]]!=1&crocks[position[1][0]-1][position[1][1]+1]==1){
+                        crocks[position[1][0]-1][position[1][1]+1] = 0;
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        switchs(position[1][0]+1,position[1][1]-1);
+                    }else if(crocks[position[1][0]][position[1][1]+1]==1&crocks[position[1][0]-1][position[1][1]]==1){
+                        crocks[position[1][0]][position[1][1]+1] = 0;
+                        crocks[position[1][0]-1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        switchs(position[1][0]+1,position[1][1]-1);
+                    }else if(crocks[position[1][0]][position[1][1]+1]==1){
+                        crocks[position[1][0]][position[1][1]+1] = 0;
+                        $("table tr").eq(position[1][1]+1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        choose_direction(null, null, null, position[1][1] );
+                    }else{
+                        crocks[position[1][0]-1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        choose_direction(position[1][0], null, null, null );
+                    }
                 }
             }else{
                 //无向
@@ -292,21 +345,70 @@ function gostraight() {
         }else if(position[1][1]<position[0][1]){
             //向右
             if(position[1][0]>position[0][0]){
-                if(crocks[position[1][0]][position[1][1]-1]!=1&crocks[position[1][0]+1][position[1][1]-1]!=1)
+                if(crocks[position[1][0]][position[1][1]-1]!=1&crocks[position[1][0]+1][position[1][1]]!=1&crocks[position[1][0]+1][position[1][1]-1]!=1)
                     switchs(position[1][0]+1, position[1][1]-1)
                 else{
-                    crocks[position[1][0]][position[1][1]-1] = 0;
-                    $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
-                    choose_direction(null, null, position[1][1] , null);
+                    if(crocks[position[1][0]][position[1][1]-1]==1&crocks[position[1][0]+1][position[1][1]]==1&crocks[position[1][0]+1][position[1][1]-1]==1){
+                        crocks[position[1][0]][position[1][1] - 1] = 0;
+                        crocks[position[1][0]+1][position[1][1]] = 0;
+                        crocks[position[1][0]+1][position[1][1]-1] = 0;
+                        $("table tr").eq(position[1][1] - 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        switchs(position[1][0]-1, position[1][1]+1);
+                    }else if(crocks[position[1][0]][position[1][1]-1]!=1&crocks[position[1][0]+1][position[1][1]]!=1&crocks[position[1][0]+1][position[1][1]-1]==1){
+                        crocks[position[1][0]+1][position[1][1]-1] = 0;
+                        $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        switchs(position[1][0]-1, position[1][1]+1);
+                    }else if(crocks[position[1][0]][position[1][1]-1]==1&crocks[position[1][0]+1][position[1][1]]==1&crocks[position[1][0]+1][position[1][1]-1]!=1){
+                        crocks[position[1][0]][position[1][1] - 1] = 0;
+                        crocks[position[1][0]+1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1] - 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        switchs(position[1][0]-1, position[1][1]+1);
+                    }else if(crocks[position[1][0]][position[1][1]-1]==1) {
+                        crocks[position[1][0]][position[1][1] - 1] = 0;
+                        $("table tr").eq(position[1][1] - 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        choose_direction(null, null, position[1][1], null);
+                    }else {
+                        crocks[position[1][0]+1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]+1).removeClass("td_band");
+                        choose_direction(null, position[1][0], null, null);
+                    }
                 }
             }else if(position[1][0]<position[0][0]){
                 //向左
-                if(crocks[position[1][0]][position[1][1]-1]!=1)
+                if(crocks[position[1][0]][position[1][1]-1]!=1&crocks[position[1][0]-1][position[1][1]]!=1&crocks[position[1][0]-1][position[1][1]-1]!=1)
                     switchs(position[1][0]-1, position[1][1]-1)
                 else{
-                    crocks[position[1][0]][position[1][1]-1] = 0;
-                    $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
-                    choose_direction(null, null, position[1][1] , null);
+                    if(crocks[position[1][0]][position[1][1]-1]==1&crocks[position[1][0]-1][position[1][1]]==1&crocks[position[1][0]-1][position[1][1]-1]==1){
+                        crocks[position[1][0]][position[1][1] - 1] = 0;
+                        crocks[position[1][0]-1][position[1][1]] = 0;
+                        crocks[position[1][0]-1][position[1][1]-1] = 0;
+                        $("table tr").eq(position[1][1] - 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        switchs(position[1][0]+1,position[1][1]+1);
+                    }else if(crocks[position[1][0]][position[1][1]-1]==1&crocks[position[1][0]-1][position[1][1]]==1&crocks[position[1][0]-1][position[1][1]-1]!=1){
+                        crocks[position[1][0]][position[1][1] - 1] = 0;
+                        crocks[position[1][0]-1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1] - 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        switchs(position[1][0]+1,position[1][1]+1);
+                    }else if(crocks[position[1][0]][position[1][1]-1]!=1&crocks[position[1][0]-1][position[1][1]]!=1&crocks[position[1][0]-1][position[1][1]-1]==1){
+                        crocks[position[1][0]-1][position[1][1]-1] = 0;
+                        $("table tr").eq(position[1][1]-1).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        switchs(position[1][0]+1,position[1][1]+1);
+                    }
+                    else if(crocks[position[1][0]][position[1][1]-1]==1){
+                        crocks[position[1][0]][position[1][1] - 1] = 0;
+                        $("table tr").eq(position[1][1] - 1).eq(0).find("td").eq(position[1][0]).removeClass("td_band");
+                        choose_direction(null, null, position[1][1], null);
+                    }else {
+                        crocks[position[1][0]-1][position[1][1]] = 0;
+                        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]-1).removeClass("td_band");
+                        choose_direction(position[1][0], null, null, null);
+                    }
                 }
             }else{
                 //无向

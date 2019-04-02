@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="549fca43-2fd7-4021-9f9a-dadb84b2e4f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/gamedriver.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gamedriver.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -18,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/game_start.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="243">
               <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
             </state>
           </provider>
@@ -27,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/gamedriver.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="295" column="63" lean-forward="true" selection-start-line="295" selection-start-column="63" selection-end-line="295" selection-end-column="63" />
+            <state relative-caret-position="189">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -36,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
+            <state relative-caret-position="513">
               <caret line="19" column="8" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="8" />
             </state>
           </provider>
@@ -147,7 +148,8 @@
       <updated>1553923822660</updated>
       <workItem from="1553923824718" duration="28453000" />
       <workItem from="1554016079757" duration="6349000" />
-      <workItem from="1554108088958" duration="9111000" />
+      <workItem from="1554108088958" duration="9261000" />
+      <workItem from="1554168801873" duration="9078000" />
     </task>
     <task id="LOCAL-00001" summary="crock made">
       <created>1554115125692</created>
@@ -163,18 +165,25 @@
       <option name="project" value="LOCAL" />
       <updated>1554115187819</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="crock deleting">
+      <created>1554120008375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1554120008375</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43913000" />
+    <option name="totallyTimeSpent" value="53141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="738" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24181548" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24181548" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.3298731" />
@@ -199,7 +208,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="corner solve" />
     <MESSAGE value="crock made" />
-    <option name="LAST_COMMIT_MESSAGE" value="crock made" />
+    <MESSAGE value="crock deleting" />
+    <option name="LAST_COMMIT_MESSAGE" value="crock deleting" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/jquery.js">
@@ -211,22 +221,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/game_start.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="243">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
+        <state relative-caret-position="513">
           <caret line="19" column="8" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/gamedriver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="295" column="63" lean-forward="true" selection-start-line="295" selection-start-column="63" selection-end-line="295" selection-end-column="63" />
+        <state relative-caret-position="189">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
         </state>
       </provider>
     </entry>
