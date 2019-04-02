@@ -1,0 +1,22 @@
+body{
+    background-color: #707168;
+}
+
+table {
+    width: 800px;
+    height: 600px;
+    background-color: #5d5b59;
+    border: hidden;
+    position: absolute;
+    left: 17%;
+    top: 5%;
+}
+
+.tdscolor {
+    background-color: #d5ccc9;
+    border-radius: 100%;
+}
+
+.td_band {
+    background-color: #c1b8ad;
+}
