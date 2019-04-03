@@ -124,24 +124,6 @@ function randomnum(min_num,max_num) {
     return res;
 }
 
-//移动过程显示处理
-function switchs(x,y) {
-    $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]).removeClass("tdscolor");
-    $("table tr").eq(y).eq(0).find("td").eq(x).toggleClass("tdscolor");
-    position[0][0] = position[1][0];
-    position[0][1] = position[1][1];
-    position[1][0] = x;
-    position[1][1] = y;
-}
-
-function game_over() {
-    alert("GAME OVER");
-    position[0][0] = null;
-    position[0][1] = null;
-    init();
-    return;
-}
-
 //选择移动方向
 function choose_direction(lefts,right,ups,dns) {
     if (position[1][0] == (lefts!=null?lefts:0)) {
@@ -155,6 +137,50 @@ function choose_direction(lefts,right,ups,dns) {
     } else {
         gostraight();
     }
+}
+
+//移动过程显示处理
+function switchs(x,y) {
+    // if(crocks[x][y]!=-1) {
+        $("table tr").eq(position[1][1]).eq(0).find("td").eq(position[1][0]).removeClass("tdscolor");
+        $("table tr").eq(y).eq(0).find("td").eq(x).toggleClass("tdscolor");
+        position[0][0] = position[1][0];
+        position[0][1] = position[1][1];
+        position[1][0] = x;
+        position[1][1] = y;
+    // }else {
+    //     if(position[1][0]+1==x&position[1][1]-1==y){
+    //         if((randomnum(1,11)>5?1:0) == 1) {
+    //             switchs(x - 2, y);
+    //         }
+    //         else {
+    //             switchs(x, y + 2);
+    //         }
+    //     }else if(position[1][0]+1==x&position[1][1]+1==y){
+    //         if((randomnum(1,11)>5?1:0) == 1)
+    //             switchs(x,y-2);
+    //         else
+    //             switchs(x-2,y);
+    //     }else if(position[1][0]-1==x&position[1][1]-1==y){
+    //         if((randomnum(1,11)>5?1:0) == 1)
+    //             switchs(x+2,y);
+    //         else
+    //             switchs(x,y+2);
+    //     }else{
+    //         if((randomnum(1,11)>5?1:0) == 1)
+    //             switchs(x,y-2);
+    //         else
+    //             switchs(x+2,y);
+    //     }
+    // }
+}
+
+function game_over() {
+    alert("GAME OVER");
+    position[0][0] = null;
+    position[0][1] = null;
+    init();
+    return;
 }
 
 //触发球移动
