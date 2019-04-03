@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="549fca43-2fd7-4021-9f9a-dadb84b2e4f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/gamedriver.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gamedriver.js" afterDir="false" />
-    </list>
+    <list default="true" id="549fca43-2fd7-4021-9f9a-dadb84b2e4f9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -28,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/gamedriver.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="143" column="29" lean-forward="true" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
+            <state relative-caret-position="333">
+              <caret line="147" column="40" lean-forward="true" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -126,7 +123,7 @@
       <workItem from="1554108088958" duration="9261000" />
       <workItem from="1554168801873" duration="10521000" />
       <workItem from="1554189808903" duration="5472000" />
-      <workItem from="1554256518740" duration="6584000" />
+      <workItem from="1554256518740" duration="7674000" />
     </task>
     <task id="LOCAL-00001" summary="crock made">
       <created>1554115125692</created>
@@ -170,11 +167,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554198625674</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="heart first3">
+      <created>1554267221518</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554267221518</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66640000" />
+    <option name="totallyTimeSpent" value="67730000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="738" extended-state="6" />
@@ -210,7 +214,8 @@
     <MESSAGE value="final test1" />
     <MESSAGE value="heart first" />
     <MESSAGE value="heart first2" />
-    <option name="LAST_COMMIT_MESSAGE" value="heart first2" />
+    <MESSAGE value="heart first3" />
+    <option name="LAST_COMMIT_MESSAGE" value="heart first3" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js/jquery.js">
@@ -236,8 +241,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/gamedriver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="143" column="29" lean-forward="true" selection-start-line="143" selection-start-column="29" selection-end-line="143" selection-end-column="29" />
+        <state relative-caret-position="333">
+          <caret line="147" column="40" lean-forward="true" selection-start-line="147" selection-start-column="40" selection-end-line="147" selection-end-column="40" />
         </state>
       </provider>
     </entry>
